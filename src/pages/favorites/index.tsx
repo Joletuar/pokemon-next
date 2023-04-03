@@ -1,10 +1,16 @@
 import { NextPage } from 'next';
 import { Layout } from '@/components/layouts';
+import { Container } from '@nextui-org/react';
 
 const FavoritesPage: NextPage = () => {
     return (
         <Layout title='Pokemon | Favoritos'>
-            <h1>Favoritos</h1>
+            <Container css={{
+                display: "flex",
+                flexDirection
+            }}>
+
+            </Container>
         </Layout>
     );
 };

@@ -33,7 +33,7 @@ export const Nabvar: FC = () => {
                         P
                     </Text>
                     <Text color='white' h3>
-                        ókemon
+                        okémon
                     </Text>
                 </NextLink>
             </Link>
