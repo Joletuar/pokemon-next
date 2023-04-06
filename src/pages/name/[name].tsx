@@ -1,30 +1,19 @@
 import { useState } from 'react';
-import { GetStaticProps, GetStaticPaths, NextPage } from 'next';
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 
-import confetti from 'canvas-confetti';
-
-import pokeApi from '@/api/pokeApi';
-import { Layout } from '@/components/layouts';
-import { Pokemon } from '@/interfaces';
-import { Button, Card, Container, Grid, Image, Text } from '@nextui-org/react';
 import { localFavorite } from '@/utils';
+import { Layout } from '@/components/layouts';
+import { Pokemon, Species } from '@/interfaces';
+
+import { Button, Card, Container, Grid, Image, Text } from '@nextui-org/react';
+import confetti from 'canvas-confetti';
+import pokeApi from '@/api/pokeApi';
 
 interface Props {
     pokemon: Pokemon;
 }
 
-// Hay que tener cuidado ya que los objetos se pueden renderizar tanto en el backend como en el front
-// por lo cual hay que saber cuando hay utilizar esto
-
-// El useEffect ejecuta código del lado del cliente
-
-const PokemonPage: NextPage<Props> = ({ pokemon }) => {
-    // Dentro del router tenemos varios parámetros importantes
-    // router.query contiene los query params
-
-    // const router = useRouter();
-    // console.log(router.query);
-
+const PokemonByName: NextPage<Props> = ({ pokemon }) => {
     const [isInFavorites, setIsInFavorites] = useState(
         localFavorite.existInFavorites(pokemon.id)
     );
@@ -127,17 +116,12 @@ const PokemonPage: NextPage<Props> = ({ pokemon }) => {
     );
 };
 
-// [id] corresponde al dymanic routes
-
-// Aqui se define la lista de rutas que serán generadas de manera estatica
+export default PokemonByName;
 
 export const getStaticPaths: GetStaticPaths = async (ctx) => {
-    // Se crea un nuevo arreglo se 151 posiciones
-    // Se recorreo el arreglo y se guarda por cada posición un string con el indice + 1
+    const { data } = await pokeApi.get('/pokemon?limit=151');
 
-    const pokemons151: string[] = [...Array(151)].map(
-        (value, index) => `${index + 1}`
-    );
+    const pokemons: { name: string; url: string }[] = data.results;
 
     return {
         // paths: [
@@ -146,9 +130,9 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
         //     },
         // ],
 
-        paths: pokemons151.map((id) => ({
+        paths: pokemons.map(({ name }) => ({
             params: {
-                id,
+                name,
             },
         })),
 
@@ -156,15 +140,12 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
     };
 };
 
-// Despues de que se ejecuta el getStaticPath se ejecuta esta función
-// La información generado desde el getStaticPath la podemos acceder a traves del contexto
-
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-    const { id } = params as {
-        id: string;
+    const { name } = params as {
+        name: string;
     };
 
-    const { data } = await pokeApi.get<Pokemon>(`/pokemon/${id}`);
+    const { data } = await pokeApi.get<Pokemon>(`/pokemon/${name}`);
 
     return {
         props: {
@@ -172,5 +153,3 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         },
     };
 };
-
-export default PokemonPage;
