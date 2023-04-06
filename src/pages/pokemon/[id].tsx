@@ -127,7 +127,7 @@ const PokemonPage: NextPage<Props> = ({ pokemon }) => {
 
 // [id] corresponde al dymanic routes
 
-// Aqui se define la lista de rutas que serán generadas de manera estatica
+// Aqui se define la lista de rutas posibles que serán generadas de manera estatica
 
 export const getStaticPaths: GetStaticPaths = async (ctx) => {
   // Se crea un nuevo arreglo se 151 posiciones
@@ -149,8 +149,9 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
         id,
       },
     })),
-
-    fallback: false,
+    // Cuando esta en false si llega un parámetro que no existe entonces muestra la página 404, contrario intenta resolverla si es posible
+    // fallback: false,
+    fallback: "blocking"
   };
 };
 
@@ -164,10 +165,22 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const pokemon = await getPokemonInfo(id);
 
+  if (!pokemon) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false
+      }
+    }
+  }
+
   return {
     props: {
       pokemon,
     },
+    // Este dato está en segundos
+    // Con esto revalidamos la página cada 24 horas
+    revalidate: 86400 // 60*60*24
   };
 };
 
