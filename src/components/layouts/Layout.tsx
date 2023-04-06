@@ -1,36 +1,53 @@
-import { FC, ReactNode } from 'react';
+import { FC, ReactNode } from "react";
 
-import Head from 'next/head';
+import Head from "next/head";
 
-import { Nabvar } from '../ui';
+import { Nabvar } from "../ui";
 
 interface LayoutProps {
-    children?: ReactNode | undefined;
-    title?: string;
+  children?: ReactNode | undefined;
+  title?: string;
 }
 
+const origin = typeof window === "undefined" ? "" : window.location.origin;
+
 export const Layout: FC<LayoutProps> = ({ children, title }) => {
-    return (
-        <>
-            <Head>
-                <title>{title || 'Pokemon App'}</title>
-                <meta name='author' content='Johan Tuarez' />
-                <meta
-                    name='description'
-                    content={`Información sobre el pokemón ${title}`}
-                />
-                <meta name='keywords' content={`${title}, pokemon, pokedex`} />
-            </Head>
+  console.log(origin);
 
-            <Nabvar />
+  return (
+    <>
+      <Head>
+        <title>{title || "Pokemon App"}</title>
+        <meta name="author" content="Johan Tuarez" />
+        <meta
+          name="description"
+          content={`Información sobre el pokemón ${title}`}
+        />
+        <meta name="keywords" content={`${title}, pokemon, pokedex`} />
 
-            <main
-                style={{
-                    padding: '0px 20px',
-                }}
-            >
-                {children}
-            </main>
-        </>
-    );
+        <meta
+          property="og:title"
+          content={`Información sobre el pokémon ${title}`}
+        />
+        <meta
+          property="og:description"
+          content={`Esta es la información de ${title}`}
+        />
+        <meta
+          property="og:image"
+          content={`${origin}/img/banner.png`}
+        />
+      </Head>
+
+      <Nabvar />
+
+      <main
+        style={{
+          padding: "0px 20px",
+        }}
+      >
+        {children}
+      </main>
+    </>
+  );
 };
