@@ -1,38 +1,23 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Pokemon NextJs
 
-## Getting Started
+Este proyecto tuvo como objetivo poner en práctica las bases del framework de React, NextJs. Consitió una consulta hacia la api pública de los 150 primeros pokemons, y con la información obtenida se realizó su respectiva maquetación y estilado usando Next UI. Una de las características principales del proyecto, es que los 150 primeros pokemons están generados de manera estática (SSR) para facilitar el SEO. Por otra parte, tambien se incluye la posibilidad de generar contenido estático adicional cuando se consulta por pokemons de la posición 151 en adelante (ISR).
 
-First, run the development server:
+## Realizar el deploy de manera local
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Primero, clona el poryecto e instala todas las dependencias con tu gestor de paquetes preferido: npm, yarn, pnpm, etc.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Luego visita la URL donde se deplegó de manera local. Enjoy!
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Imágenes del proyecto
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Inicio 
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+![Pokemon Home](https://res.cloudinary.com/dviezfcgy/image/upload/v1685500108/rps72l9fdo9gufch5vn6.png)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Vista del pokemon
 
-## Learn More
+![Pokemon Home](https://res.cloudinary.com/dviezfcgy/image/upload/v1685500106/xf6ipkmbt6l3sql48ved.png)
 
-To learn more about Next.js, take a look at the following resources:
+Listado de favoritos 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![Pokemon Home](https://res.cloudinary.com/dviezfcgy/image/upload/v1685500106/jlbmfcxdpd0y5lhyi4qm.png)
