@@ -6,7 +6,7 @@ Este proyecto tuvo como objetivo poner en práctica las bases del framework de R
 
 Primero, clona el poryecto e instala todas las dependencias con tu gestor de paquetes preferido: npm, yarn, pnpm, etc.
 
-Luego visita la URL donde se deplegó de manera local. Enjoy!
+Luego visita la http://localhost:3000 para ver el resultado. Enjoy!
 
 ## Imágenes del proyecto
 
