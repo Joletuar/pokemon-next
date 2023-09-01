@@ -12,12 +12,12 @@ Luego visita la http://localhost:3000 para ver el resultado. Enjoy!
 
 Inicio 
 
-![Pokemon Home](https://res.cloudinary.com/dviezfcgy/image/upload/v1685500108/rps72l9fdo9gufch5vn6.png)
+![Pokemon Home](https://res.cloudinary.com/dviezfcgy/image/upload/v1685500108/pokeapp/rps72l9fdo9gufch5vn6.png)
 
 Vista del pokemon
 
-![Pokemon Home](https://res.cloudinary.com/dviezfcgy/image/upload/v1685500106/xf6ipkmbt6l3sql48ved.png)
+![Pokemon Home](https://res.cloudinary.com/dviezfcgy/image/upload/v1685500106/pokeapp/xf6ipkmbt6l3sql48ved.png)
 
 Listado de favoritos 
 
-![Pokemon Home](https://res.cloudinary.com/dviezfcgy/image/upload/v1685500106/jlbmfcxdpd0y5lhyi4qm.png)
+![Pokemon Home](https://res.cloudinary.com/dviezfcgy/image/upload/v1685500106/pokeapp/jlbmfcxdpd0y5lhyi4qm.png)
